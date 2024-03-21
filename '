@@ -1,0 +1,29 @@
+#!/bin/sh
+# vim: syntax=sh
+counter=0
+score=0
+printf("welcome to the number game\n\nWrite your user name:")
+
+while [ "$counter" -lt 10 ]; do
+    counter=$((counter+1))
+    random_number=$(( (RANDOM % 6) + 1 ))
+    echo "Enter a number between 1-6 (enter 0 to exit): "
+    read input
+
+    if [ "$input" -eq 0 ]; then
+        echo "Exiting the loop."
+        break
+    if [ "$input" -gt 6 ]; then
+        echo "Number must be between 1-6, try again"
+        counter=$((counter-1))
+
+    elif [ "$input" -eq $random_number ]; then
+        echo "Correct."
+        score=$((score+1))
+    else
+        echo "Incorrect"
+    fi
+done
+
+echo "final score: $score"
+

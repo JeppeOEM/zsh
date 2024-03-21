@@ -1,0 +1,18 @@
+Week,Development Environments,Lecture,Date
+34,Intro; Groups; VPS; Vim-Tutor,1,2023-08-25
+35,Unix-like Systems,2,2023-09-01
+36,Scripting; Requirement Specifications; Knowledge Management Systems,3,2023-09-08
+37,Version Control System,4,2023-09-15
+38,Virtualization and Process Isolation 1,5,2023-09-22
+39,Virtualization and Process Isolation 2,6,2023-09-29
+40,Workshop: Dockerize Your App,7,2023-10-06
+41,Software Quality Assurance,8,2023-10-13
+42,**Week off**,-,2023-10-20
+43,Continuous Integration 1,9,2023-10-27
+44,Workshop: Build A CI Pipeline,10,2023-11-03
+45,Databases; Programming Languages; Block and Object Storage; SSH; TLS Certificate; Report Writing,11,2023-11-10
+46,Recap and Q&A,12,2023-11-17
+47,Project,13,2023-11-24
+48,Project,14,2023-12-01
+49,Project,15,2023-12-08
+50,Project,16,2023-12-15

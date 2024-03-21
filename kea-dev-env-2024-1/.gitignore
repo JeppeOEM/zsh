@@ -1,0 +1,9 @@
+.env/
+*.swp
+.DS_Store
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
+db.sqlite3
+kea-development-environments-2023-1/
+site/

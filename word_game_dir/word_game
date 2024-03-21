@@ -1,0 +1,56 @@
+#!/bin/bash
+echo "Welcome to the flash card game"
+touch codes
+
+./trans -list-codes > codes
+#
+#
+index=0
+# Read lines from the file and save them into the pseudo array
+# We use eval to dynamically construct variable names
+
+#while IFS= read -r line; do
+#    eval "array_$index"='"$line"'
+#    index=$((index + 1))
+#done < codes
+
+
+random_line () {
+    local path="$1"  # Access the parameter using $1
+    num_lines=$(wc -l < "$path")
+    random_line=$((RANDOM % num_lines + 1))
+    #the aded "p" directly print out line, stdtout
+    sed -n "${random_line}p"  "$path"
+}
+
+
+running=0
+while [ "$running" -eq 0 ]; do
+    random_language=$(random_line "codes")
+    random_word=$(random_line "english")
+    translated=$(./trans :"$random_language" "$random_word" -b)
+    echo "Guess the word you got 10 seconds! $translated"
+
+    read -t 10 input
+    read_status=$?  # Store the exit status of read
+
+    if [ $read_status -eq 0 ]; then
+        if [ "$input" = "$translated" ]; then
+            echo "Correct"
+        else
+            echo "Try again!"
+        fi
+    elif [ $read_status -eq 1 ]; then
+        echo "Time's up!"
+    else
+        echo "An error occurred while reading input"
+    fi
+
+    if [ "$input" = "exit" ]; then
+        running=1
+    fi
+
+    echo "Correct answer is: $random_word"
+done
+
+rm codes
